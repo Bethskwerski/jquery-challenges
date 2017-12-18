@@ -38,11 +38,46 @@
 
 (function(){
 
+  
+
   //jQuery equivelent to window.onload = function{}
   //code in here wont run until page loads
   $(function(){
+    let teamOneNumShots = $("#teamone-numshots");
+    let teamTwoNumShots = $("#teamtwo-numshots");
+    let teamOneShootButton = $("#teamone-shoot");
+    let teamTwoShootButton = $("#teamtwo-shoot")
+    let resetButton = $("#reset");
+    let numberOfResets = $("#num-resets");
+    let teamOneScore = $("#teamone-numhits");
+    let teamTwoScore = $("#teamtwo-numhits");
 
+    teamOneShootButton.click(function(){
+      teamOneNumShots.html(parseInt(teamOneNumShots.html()) +1);
+      if((Math.random()*10) >= 6){
+        teamOneScore.html(parseInt(teamOneScore.html()) +1);
+        $("body").css("background-color", "yellow");
+      }
+      })
 
+      teamTwoShootButton.click(function(){
+        teamTwoNumShots.html(parseInt(teamTwoNumShots.html()) +1);
+        if((Math.random()*10) >= 6){
+          teamTwoScore.html(parseInt(teamTwoScore.html()) +1);
+          $("body").css("background-color", "red");
+        }
+        })
+
+        resetButton.click(function(){
+          teamTwoScore.html(0);
+          teamOneScore.html(0);
+          teamOneNumShots.html(0);
+          teamTwoNumShots.html(0);
+          $("body").css("background-color", "white");
+
+          numberOfResets.html(parseInt(numberOfResets.html()) +1);
+          
+          })
 
   })
 
