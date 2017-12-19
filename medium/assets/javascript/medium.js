@@ -51,12 +51,16 @@
     let numberOfResets = $("#num-resets");
     let teamOneScore = $("#teamone-numhits");
     let teamTwoScore = $("#teamtwo-numhits");
+    let score = new Audio("assets/audio/5_Sec_Crowd_Cheer-Mike_Koenig-1562033255.mp3");
+   
+   
 
     teamOneShootButton.click(function(){
       teamOneNumShots.html(parseInt(teamOneNumShots.html()) +1);
       if((Math.random()*10) >= 6){
         teamOneScore.html(parseInt(teamOneScore.html()) +1);
         $("body").css("background-color", "yellow");
+        score.play();
       }
       })
 
@@ -65,6 +69,7 @@
         if((Math.random()*10) >= 6){
           teamTwoScore.html(parseInt(teamTwoScore.html()) +1);
           $("body").css("background-color", "red");
+          score.play();
         }
         })
 
